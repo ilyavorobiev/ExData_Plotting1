@@ -20,6 +20,8 @@ par(bg = "transparent")
 hist(consumption$Global_active_power,
      main = "Global Active Power",
      xlab = "Global Active Power (kilowatts)",
+     cex.lab = 0.75,
+     cex.main = 0.9,
      col = "red")
 
 # Copy to file
