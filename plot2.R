@@ -18,10 +18,12 @@ par(bg = "transparent")
 
 # Create plot
 plot(consumption$DateTime,consumption$Global_active_power, 
-     type="l",
-     ylab="Global Active Power (kilowatts)",
-     xlab=NA,
-     main=NA)
+     type = "l",
+     ylab = "Global Active Power (kilowatts)",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
+     xlab = NA,
+     main = NA)
 
 # Copy to file
 dev.copy(png, file = "plot2.png",height=480,width=480)
