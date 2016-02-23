@@ -34,6 +34,8 @@ plot(consumption$DateTime,consumption$Voltage,
 plot(consumption$DateTime,consumption$Sub_metering_1, 
      type ="l",
      ylab = "Energy sub metering",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
      xlab = NA,
      main = NA)
 
@@ -47,7 +49,15 @@ lines(consumption$DateTime,consumption$Sub_metering_3,
       col = "blue",
       lty = 1)
 
-legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright",
+       lty = 1, 
+       col = c("black", "red", "blue"), 
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       cex = 0.75,
+       y.intersp = 1,
+       x.intersp = 0.5,
+       bty = "n",
+       text.width = strwidth("10,000,000,000"))
 
 # Create 4th plot
 p <- plot(consumption$DateTime,consumption$Global_reactive_power, 
