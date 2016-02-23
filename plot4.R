@@ -1,3 +1,6 @@
+# Load libraries
+library(sqldf)
+
 # Download and unzip data
 temp <- tempfile()
 download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp, mode="wb")
@@ -10,8 +13,8 @@ consumption <- read.csv.sql("household_power_consumption.txt", sql = 'select * f
 consumption[consumption == "?"] <- NA
 consumption$DateTime <- as.POSIXct(paste(consumption$Date, consumption$Time), format="%d/%m/%Y %H:%M:%S")
 
-# Create plot grid
-par(mfrow = c(2, 2))
+# Create plot grid and transparent
+par(mfrow = c(2, 2), bg = "transparent")
 
 # Create 1st plot
 plot(consumption$DateTime,consumption$Global_active_power, 
@@ -47,7 +50,7 @@ lines(consumption$DateTime,consumption$Sub_metering_3,
 legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 # Create 4th plot
-plot(consumption$DateTime,consumption$Global_reactive_power, 
+p <- plot(consumption$DateTime,consumption$Global_reactive_power, 
      type="l",
      ylab="Global_reactive_power",
      xlab="datetime",

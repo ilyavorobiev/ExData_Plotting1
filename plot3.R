@@ -1,3 +1,6 @@
+# Load libraries
+library(sqldf)
+
 # Download and unzip data
 temp <- tempfile()
 download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp, mode="wb")
@@ -9,6 +12,9 @@ consumption <- read.csv.sql("household_power_consumption.txt", sql = 'select * f
 # Format data
 consumption[consumption == "?"] <- NA
 consumption$DateTime <- as.POSIXct(paste(consumption$Date, consumption$Time), format="%d/%m/%Y %H:%M:%S")
+
+# Transparent graphics
+par(bg = "transparent")
 
 # Create plot
 plot(consumption$DateTime,consumption$Sub_metering_1, 
