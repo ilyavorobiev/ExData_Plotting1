@@ -20,6 +20,8 @@ par(mfrow = c(2, 2), bg = "transparent")
 plot(consumption$DateTime,consumption$Global_active_power, 
      type="l",
      ylab="Global Active Power",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
      xlab=NA,
      main=NA)
 
@@ -28,6 +30,8 @@ plot(consumption$DateTime,consumption$Voltage,
      type="l",
      ylab="Voltage",
      xlab="datetime",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
      main=NA)
 
 # Create 3rd plot
@@ -64,6 +68,8 @@ p <- plot(consumption$DateTime,consumption$Global_reactive_power,
      type="l",
      ylab="Global_reactive_power",
      xlab="datetime",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
      main=NA)
 
 # Copy to file
