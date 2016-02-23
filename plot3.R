@@ -20,6 +20,8 @@ par(bg = "transparent")
 plot(consumption$DateTime,consumption$Sub_metering_1, 
      type ="l",
      ylab = "Energy sub metering",
+     cex.lab = 0.75,
+     cex.axis = 0.75,
      xlab = NA,
      main = NA)
 
@@ -33,8 +35,12 @@ lines(consumption$DateTime,consumption$Sub_metering_3,
       col = "blue",
       lty = 1)
 
-legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-
+legend("topright", 
+       lty = 1, 
+       col = c("black", "red", "blue"), 
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       cex = 0.75,
+       text.width = strwidth("10,000,000,000"))
 
 # Copy to file
 dev.copy(png, file = "plot3.png",height=480,width=480)
